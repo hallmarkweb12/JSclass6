@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <form action="" id="form">
+            <div class="row">
+                <label>Email:</label>
+                <input type="email" name="" id="email">
+            </div>
+            <div class="row">
+                <label>Password:</label>
+                <input type="password" name="" id="password">
+            </div>
+            <button type="submit">Login</button>
+            <p id="message"></p>
+        </form>
+    </div>
+
+    <script>
+        function validate(e){
+            e.preventDefault();
+        }
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const msgBox = document.getElementById("message").value;
+
+        let message = ''
+        if(email===''){
+            message = "Please enter an email."
+            msgBox.style.color = "red";
+        }else if(pass==''){
+            message ="please enter your password";
+            msgBox.style.color = "red"
+        }else{
+            message = "Login Successfull"
+            msgBox.style.color = "green"
+        }
+
+        msgBox.innerHTML = message;
+
+        document.getElementById("form").onsubmit = validate;
+
+        document.getElementById("email").oninput =()=>validate({preventDefault:()=>{ }})
+        document.getElementById("password").oninput =()=>validate({preventDefault:()=>{ }})
+    </script>
+</body>
+</html>
